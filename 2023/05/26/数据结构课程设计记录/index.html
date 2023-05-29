@@ -1,0 +1,1323 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据结构课程设计, azeng">
+    <meta name="description" content="一、引言1.1 背景和目标
+背景
+
+
+中国大学生计算机设计大赛是我国高校面向本科生的计算机应用设计大赛，大赛旨在激发学生学习计算机知识和技能的兴趣与潜能，提高学生运用信息技术解决实际问题的综合能力。通过大赛这种计算机教学实践形式，可展示师生">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据结构课程设计 | azeng</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">azeng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">azeng</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据结构课程设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><h2 id="1-1-背景和目标"><a href="#1-1-背景和目标" class="headerlink" title="1.1 背景和目标"></a>1.1 背景和目标</h2><ol>
+<li>背景</li>
+</ol>
+<blockquote>
+<p>中国大学生计算机设计大赛是我国高校面向本科生的计算机应用设计大赛，大赛旨在激发学生学习计算机知识和技能的兴趣与潜能，提高学生运用信息技术解决实际问题的综合能力。通过大赛这种计算机教学实践形式，可展示师生的教与学成果，最终以赛促学，以赛促教，以赛促创。该赛事在历届学生中影响力较大，参与者众多，请结合2021届省赛参赛的数据，<strong>借助数据结构课程所学的相关知识，通过对数据的处理和分析，熟悉数据结构设计及数据处理在信息管理系统中应用的重要性。</strong>赛事相关数据存储在文本文件和excel文件中，相应的文件信息说明如表1所示。其中，各个文件中不同的数据项之间均使用#分隔，下图中给出了文件team.txt中参赛信息的对应数据示例。</p>
+</blockquote>
+<ol start="2">
+<li>目标<ol>
+<li>   熟练掌握线性表、栈、队列、串、数组、树和图等基本数据结构的逻辑特性和存储表示方法；熟练掌握各种基本数据结构的基本算法和其应用；熟练掌握问题分析、数据结构设计、程序设计的基本技能和技术。</li>
+<li>   能够综合运用数据结构与算法和相关的数学等理论知识对复杂工程中的算法问题进行抽象、分析和建模；能够依据工程实际问题的需求合理组织数据、并在计算机中有效地存储数据；能够针对复杂工程中的算法问题，设计出比较合理的解决方案，利用具体的编程语言实现解决方案，并具有一定的创新思维能力。</li>
+<li>   具有良好的工程素养和职业素养，诚信守法，能够坚持职业操守和道德规范；具有精益求精的工匠精神、创新精神和探索未知终身学习的意识；具有科技报国的社会责任感、使命感和爱国主义情操。</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-2-需求"><a href="#1-2-需求" class="headerlink" title="1.2 需求"></a>1.2 需求</h2><p>本次课程设计要求协助中国大学生计算机设计大赛江苏省组委会，设计一款赛事管理系统，实现赛务相关的数据管理及信息服务，该系统能够为省级赛事管理</p>
+<ol>
+<li>能够管理各参赛队的基本信息（包含参赛队编号，参赛作品名称，参赛学校，赛事类别，参赛者，指导老师），赛事类别共11项（参见大赛官网jsjds.blcu.edu.cn）；包括增加、删除、修改参赛队伍的信息。</li>
+<li>从team.txt中读取参赛队伍的基本信息，实现基于二叉排序树的查找。根据提示输入参赛队编号，若查找成功，输出该赛事类别对应的基本信息（参赛作品名称、参赛学校、赛事类别、参赛者和指导老师信息），同时，输出查找成功时的平均查找长度ASL；否则，输出“查找失败！”。</li>
+<li>能够提供按参赛学校查询参赛团队（或根据赛事类别查询参赛团队），即，根据提示输入参赛学校名称（赛事类别），若查找成功，输出该学校参赛的（该赛事类别的）所有团队的基本信息，输出的参赛团队按赛事类别有序输出。（排序算法可从选择排序、插入排序、希尔排序、归并排序、堆排序中任意选择，并为选择算法的原因做出说明。）</li>
+<li>为省赛现场设计一个决赛叫号系统。所有参赛队按赛事组织文件中的赛事类别分到9个决赛室，决赛室按顺序叫号，被叫号参赛队进场，比赛结束后，下一参赛队才能进赛场。请模拟决赛叫号系统，演示省赛现场各决赛室的参赛队进场情况。（模拟时，要能直观展示叫号顺序与进场秩序一致）</li>
+<li>赛事系统为参赛者提供赛地的校园导游程序,为参赛者提供各种路径导航的查询服务。以我校长山校区提供比赛场地为例，（请为参赛者提供不少于10个目标地的导航。可为参赛者提供校园地图中任意目标地（建筑物）相关信息的查询；提供任意两个目标地（建筑物）的导航查询，即查询任意两个目的地（建筑物）之间的一条最短路径。<h2 id="1-3-设计要求"><a href="#1-3-设计要求" class="headerlink" title="1.3 设计要求"></a>1.3 设计要求</h2>1）赛事数据要求存入文件（txt或excel）并能读入查询；<br>2）赛地目的地查询,需提供目的地（建筑物）名称、代号、简介、两地之间路径长度等信息；<br>3）输入数据形式和范围：赛事相关数据可从键盘输入，或自文件导入。<br>4）界面要求：交互设计要合理，每个功能可以设计菜单，用户根据提示，完成相关功能的要求。</li>
+</ol>
+<h1 id="二、系统设计和准备工作"><a href="#二、系统设计和准备工作" class="headerlink" title="二、系统设计和准备工作"></a>二、系统设计和准备工作</h1><h2 id="2-1-模块设计思路和实现方式"><a href="#2-1-模块设计思路和实现方式" class="headerlink" title="2.1 模块设计思路和实现方式"></a>2.1 模块设计思路和实现方式</h2><p><strong>参赛队伍信息管理模块：</strong></p>
+<ul>
+<li>增加参赛队伍信息：收集参赛队伍的基本信息，并将其添加到系统中。</li>
+<li>删除参赛队伍信息：根据参赛队编号删除相应的参赛队伍信息。</li>
+<li>修改参赛队伍信息：根据参赛队编号选择要修改的参赛队伍，并允许更新相关信息。</li>
+</ul>
+<p><strong>二叉排序树模块：</strong></p>
+<ul>
+<li>从文件(team.txt)中读取参赛队伍的基本信息，并构建二叉排序树数据结构。</li>
+<li>实现基于二叉排序树的查找功能：根据参赛队编号在二叉排序树中进行查找，并返回对应赛事类别的基本信息。</li>
+<li>计算平均查找长度（ASL）：统计查找过程中访问节点的总数，计算平均查找长度。</li>
+</ul>
+<p><strong>查询功能模块：</strong></p>
+<ul>
+<li>按参赛学校查询参赛团队：根据输入的参赛学校名称，输出该学校参赛的所有团队的基本信息。</li>
+<li>按赛事类别查询参赛团队：根据输入的赛事类别，输出该类别的所有团队的基本信息。</li>
+<li>排序功能：根据赛事类别对参赛团队进行排序，可选择选择排序、插入排序、希尔排序、归并排序或堆排序，需说明选择算法的原因。</li>
+</ul>
+<p><strong>决赛叫号系统模块：</strong></p>
+<ul>
+<li>设计决赛叫号系统：根据赛事组织文件中的赛事类别将参赛队伍分配到9个决赛室。</li>
+<li>模拟叫号和进场过程：按顺序叫号，展示叫号顺序与参赛队伍进场秩序的一致性。</li>
+</ul>
+<p><strong>校园导游程序模块：</strong></p>
+<ul>
+<li>提供目标地导航信息查询：根据输入的目标地名称，查询并输出相关信息，包括名称、代号、简介等。</li>
+<li>最短路径查询：根据输入的两个目标地名称，计算并输出它们之间的最短路径长度。</li>
+</ul>
+<h1 id="三、实现过程"><a href="#三、实现过程" class="headerlink" title="三、实现过程"></a>三、实现过程</h1><h2 id="3-1-参赛队伍信息管理模块"><a href="#3-1-参赛队伍信息管理模块" class="headerlink" title="3.1 参赛队伍信息管理模块"></a>3.1 参赛队伍信息管理模块</h2><ol>
+<li>题目要求：能够管理各参赛队的基本信息（包含参赛队编号，参赛作品名称，参赛学校，赛事类别，参赛者，指导老师），赛事类别共11项（参见大赛官网jsjds.blcu.edu.cn）；包括增加、删除、修改参赛队伍的信息。</li>
+<li>需求分析：</li>
+</ol>
+<ul>
+<li>从team.txt文件中读取参赛队伍的基本信息。</li>
+<li>实现增加参赛队伍信息功能。</li>
+<li>实现删除参赛队伍信息功能。</li>
+<li>实现修改参赛队伍信息功能。</li>
+</ul>
+<ol start="3">
+<li>实现过程分析：</li>
+</ol>
+<ul>
+<li>创建Team类：定义了队伍的属性（队伍编号、参赛作品名称、参赛学校、赛事类别、参赛者、指导教师），以及相应的getter和setter方法。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 队伍类</span></span><br><span class="line"><span class="comment"> * 存储队伍的基本信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Team</span> &#123;</span><br><span class="line">    <span class="comment">//参赛队伍编号</span></span><br><span class="line">    <span class="keyword">private</span> String teamNumber;</span><br><span class="line">     <span class="comment">// 参赛作品名称</span></span><br><span class="line">    <span class="keyword">private</span> String projectName;</span><br><span class="line"> <span class="comment">// 参赛学校</span></span><br><span class="line">    <span class="keyword">private</span> String school;</span><br><span class="line">    <span class="comment">// 赛事类别</span></span><br><span class="line">    <span class="keyword">private</span> String category;</span><br><span class="line">   <span class="comment">// 参赛者</span></span><br><span class="line">    <span class="keyword">private</span> String participants;</span><br><span class="line">   <span class="comment">// 指导老师</span></span><br><span class="line">    <span class="keyword">private</span>  String instructor;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Team</span><span class="params">(String teamNumber, String projectName, String school, String category, String participants, String instructor)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.teamNumber = teamNumber;</span><br><span class="line">        <span class="built_in">this</span>.projectName = projectName;</span><br><span class="line">        <span class="built_in">this</span>.school = school;</span><br><span class="line">        <span class="built_in">this</span>.category = category;</span><br><span class="line">        <span class="built_in">this</span>.participants = participants;</span><br><span class="line">        <span class="built_in">this</span>.instructor = instructor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getTeamNumber</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> teamNumber;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setTeamNumber</span><span class="params">(String teamNumber)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.teamNumber = teamNumber;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getProjectName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> projectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setProjectName</span><span class="params">(String projectName)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.projectName = projectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getSchool</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> school;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSchool</span><span class="params">(String school)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.school = school;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getCategory</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> category;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setCategory</span><span class="params">(String category)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.category = category;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getParticipants</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> participants;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setParticipants</span><span class="params">(String participants)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.participants = participants;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getInstructor</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> instructor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setInstructor</span><span class="params">(String instructor)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.instructor = instructor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Team&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;teamNumber=&#x27;&quot;</span> + teamNumber + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, projectName=&#x27;&quot;</span> + projectName + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, school=&#x27;&quot;</span> + school + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, category=&#x27;&quot;</span> + category + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, participants=&#x27;&quot;</span> + participants + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, instructor=&#x27;&quot;</span> + instructor + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建TeamManager类：包含了队伍管理和控制的功能。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 队伍管理类</span></span><br><span class="line"><span class="comment"> * 能够管理参赛队伍的基本信息，包括对进行信息的增删改</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TeamManager</span> &#123;</span><br><span class="line">    <span class="comment">// 用于存储每个队伍的信息</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Team&gt; teams;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TeamManager</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.teams = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从txt文件中读取队伍信息并存储到列表中</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">loadTeamsFromFile</span><span class="params">(String filePath,String charset  )</span> &#123;</span><br><span class="line">       CommonUtils.initTeamsList(teams,filePath,charset);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTeams</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">            System.out.println(team);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>loadTeamsFromFile方法：从txt文档中读取队伍信息，并将其存储在teamList列表中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">loadTeamsFromFile</span><span class="params">(String filePath,String charset  )</span> &#123;</span><br><span class="line">     CommonUtils.initTeamsList(teams,filePath,charset);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>说明：因为后续要用到读取和写入txt的方法，所以进行了封装实现了复用😊</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CommonUtils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">initTeamsList</span><span class="params">(List&lt;Team&gt; teams , String filePath, String charset  )</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(filePath), charset))) &#123;</span><br><span class="line">            String line;</span><br><span class="line">            <span class="comment">// 跳过第一行信息</span></span><br><span class="line">            br.readLine();</span><br><span class="line">            <span class="keyword">while</span> ((line = br.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">                String[] data = line.split(<span class="string">&quot;#&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span> (data.length == <span class="number">6</span>) &#123;</span><br><span class="line">                    <span class="type">String</span> <span class="variable">teamNum</span> <span class="operator">=</span> data[<span class="number">0</span>].trim();</span><br><span class="line"></span><br><span class="line">                    <span class="type">String</span> <span class="variable">projectName</span> <span class="operator">=</span> data[<span class="number">1</span>].trim();</span><br><span class="line">                    <span class="type">String</span> <span class="variable">school</span> <span class="operator">=</span> data[<span class="number">2</span>].trim();</span><br><span class="line">                    <span class="type">String</span> <span class="variable">category</span> <span class="operator">=</span> data[<span class="number">3</span>].trim();</span><br><span class="line">                    <span class="type">String</span> <span class="variable">participants</span> <span class="operator">=</span> data[<span class="number">4</span>].trim();</span><br><span class="line">                    <span class="type">String</span> <span class="variable">instructor</span> <span class="operator">=</span> data[<span class="number">5</span>].trim();</span><br><span class="line"></span><br><span class="line">                    <span class="type">Team</span> <span class="variable">team</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Team</span>(teamNum, projectName, school, category, participants, instructor);</span><br><span class="line"></span><br><span class="line">                    teams.add(team);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;队伍信息读取完毕&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;队伍信息有误: &quot;</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveTeamsToFile</span><span class="params">(List&lt;Team&gt; teams ,String filePath)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(filePath);</span><br><span class="line">            <span class="type">OutputStreamWriter</span> <span class="variable">osw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(fos, <span class="string">&quot;Utf-8&quot;</span>);</span><br><span class="line">            <span class="type">BufferedWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(osw);</span><br><span class="line">            writer.write(<span class="string">&quot;参赛队编号\t#\t参赛作品名称\t#\t参赛学校\t#\t赛事类别\t#\t参赛者\t#\t指导教师&quot;</span>+ <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">            <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">                writer.write(team.getTeamNumber() + <span class="string">&quot; \t# \t&quot;</span> +</span><br><span class="line">                        team.getProjectName() + <span class="string">&quot; \t# \t&quot;</span> +</span><br><span class="line">                        team.getSchool() + <span class="string">&quot; \t#\t &quot;</span> +</span><br><span class="line">                        team.getCategory() + <span class="string">&quot;\t #\t &quot;</span> +</span><br><span class="line">                        team.getParticipants() + <span class="string">&quot;\t # \t&quot;</span> +</span><br><span class="line">                        team.getInstructor() + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>addTeam方法：添加队伍到teamList列表中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addTeam</span><span class="params">(Team team,String filePath)</span> &#123;</span><br><span class="line">       teams.add(team);</span><br><span class="line">       CommonUtils.saveTeamsToFile(teams,filePath);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>deleteTeam方法：根据队伍编号删除相应的队伍信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteTeam</span><span class="params">(String teamNum,String filePath)</span> &#123;</span><br><span class="line">      <span class="comment">// 方法说明 判断是否满足后面的添加如果满足就进行删除 参数传入的是Lambda表达式</span></span><br><span class="line">      teams.removeIf(team -&gt; team.getTeamNumber().equals(teamNum));</span><br><span class="line">      CommonUtils.saveTeamsToFile(teams,filePath);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>updateTeam方法：根据队伍编号选择要修改的队伍，并允许更新相关信息（赛事类别、参赛者、指导教师）。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateTeam</span><span class="params">(String teamNum, String newCategory, String newParticipants, String instructor,String filePath)</span> &#123;</span><br><span class="line">       <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">           <span class="keyword">if</span> (team.getTeamNumber().equals(teamNum)) &#123;</span><br><span class="line">               team.setCategory(newCategory);</span><br><span class="line">               team.setParticipants(newParticipants);</span><br><span class="line">               team.setInstructor(instructor);</span><br><span class="line">               CommonUtils.saveTeamsToFile(teams,filePath);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>printTeams方法：打印所有队伍的基本信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printTeams</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">           System.out.println(team);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>main方法：测试以上功能，加载队伍数据并进行相关操作。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       <span class="type">String</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="string">&quot;team.txt&quot;</span>;</span><br><span class="line">       <span class="type">String</span> <span class="variable">charset</span> <span class="operator">=</span> <span class="string">&quot;Utf-8&quot;</span>; <span class="comment">// 文件编码格式</span></span><br><span class="line">       <span class="type">TeamManager</span> <span class="variable">teamManager</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TeamManager</span>();</span><br><span class="line">       teamManager.loadTeamsFromFile(filePath,charset);</span><br><span class="line">       teamManager.printTeams();</span><br><span class="line">       <span class="comment">// 添加队伍信息</span></span><br><span class="line">       <span class="type">Team</span> <span class="variable">newTeam</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Team</span>(<span class="string">&quot;2023001234&quot;</span>, <span class="string">&quot;New Project&quot;</span>, <span class="string">&quot;New School&quot;</span>, <span class="string">&quot;New Event&quot;</span>, <span class="string">&quot;New Leader&quot;</span>, <span class="string">&quot;New Advisor&quot;</span>);</span><br><span class="line">       teamManager.addTeam(newTeam,filePath);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//删除某个队伍信息</span></span><br><span class="line">       teamManager.deleteTeam(<span class="string">&quot;2021009290&quot;</span>,filePath);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 修改队伍信息</span></span><br><span class="line">       <span class="type">Team</span> <span class="variable">updatedTeam</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Team</span>(<span class="string">&quot;2021001018&quot;</span>, <span class="string">&quot;大数据&quot;</span>, <span class="string">&quot;江科大&quot;</span>, <span class="string">&quot;666&quot;</span>, <span class="string">&quot;小王&quot;</span>, <span class="string">&quot;大王&quot;</span>);</span><br><span class="line">       teamManager.updateTeam(updatedTeam,filePath);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-二叉排序树模块"><a href="#3-2-二叉排序树模块" class="headerlink" title="3.2 二叉排序树模块"></a>3.2 二叉排序树模块</h2><ol>
+<li>题目要求：根据参赛队伍的基本信息，实现基于二叉排序树的查找。根据提示输入参赛队编号，若查找成功，输出该赛事类别对应的基本信息（参赛作品名称、参赛学校、赛事类别、参赛者和指导老师信息），同时，输出查找成功时的平均查找长度ASL；否则，输出“查找失败！”。</li>
+<li>需求分析</li>
+</ol>
+<ul>
+<li>输入：参赛队编号。</li>
+<li>输出：如果查找成功，则输出该队伍的基本信息（参赛作品名称、参赛学校、赛事类别、参赛者和指导老师信息），同时输出查找成功时的平均查找长度（ASL）。如果查找失败，则输出”查找失败！”。</li>
+</ul>
+<ol start="3">
+<li>过程分析：</li>
+</ol>
+<ul>
+<li>根据参赛队伍的基本信息，构建一个二叉排序树。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于记录查找操作过程中遍历节点的数量</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">searchCount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 节点内部类</span></span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">      <span class="comment">//编号</span></span><br><span class="line">      <span class="type">int</span> key;</span><br><span class="line">      Team team;</span><br><span class="line">      Node left, right;</span><br><span class="line"></span><br><span class="line">      Node(<span class="type">int</span> key, Team team) &#123;</span><br><span class="line">          <span class="built_in">this</span>.key = key;</span><br><span class="line">          <span class="built_in">this</span>.team = team;</span><br><span class="line">          left = right = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//根节点</span></span><br><span class="line">      Node root;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 将新队伍插入二叉搜索树</span></span><br><span class="line">      <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(<span class="type">int</span> key, Team team)</span> &#123;</span><br><span class="line">          root = insertRec(root, key, team);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 递归辅助函数，将队伍插入二叉搜索树</span></span><br><span class="line">      Node <span class="title function_">insertRec</span><span class="params">(Node root, <span class="type">int</span> key, Team team)</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">              root = <span class="keyword">new</span> <span class="title class_">Node</span>(key, team);</span><br><span class="line">              <span class="keyword">return</span> root;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (key &lt; root.key)</span><br><span class="line">              root.left = insertRec(root.left, key, team);</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; root.key)</span><br><span class="line">              root.right = insertRec(root.right, key, team);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">return</span> root;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>关于构建二叉树方法实现的说明：</p>
+<ul>
+<li>首先判断二叉搜索树是否为空，如果为空，则创建一个新的节点，该节点的参赛队编号为 key，队伍信息为 team，然后将该节点作为根节点返回。</li>
+<li>如果二叉搜索树不为空，通过递归的方式将队伍插入到正确的位置：<ul>
+<li>若 key 小于当前节点的参赛队编号，则递归调用 insertRec 函数，将队伍插入到当前节点的左子树中，并更新左子节点的链接。</li>
+<li>若 key 大于当前节点的参赛队编号，则递归调用 insertRec 函数，将队伍插入到当前节点的右子树中，并更新右子节点的链接。</li>
+</ul>
+</li>
+<li>最后，返回根节点。</li>
+</ul>
+<hr>
+<ul>
+<li>在二叉排序树中查找指定参赛队编号的队伍，如果查找成功，输出该队伍的基本信息和平均查找长度（ASL）如果查找失败，输出”查找失败！”。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据参赛队编号搜索队伍并返回相应的队伍信息</span></span><br><span class="line">   Team <span class="title function_">search</span><span class="params">(<span class="type">int</span> key)</span> &#123;</span><br><span class="line">       searchCount = <span class="number">0</span>;</span><br><span class="line">       <span class="type">Node</span> <span class="variable">result</span> <span class="operator">=</span> searchRec(root, key);</span><br><span class="line">       <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;查找成功！&quot;</span>);</span><br><span class="line">           <span class="keyword">return</span> result.team;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;查找失败！&quot;</span>);</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 递归辅助函数，根据参赛队编号搜索队伍</span></span><br><span class="line">   Node <span class="title function_">searchRec</span><span class="params">(Node root, <span class="type">int</span> key)</span> &#123;</span><br><span class="line">       searchCount++;</span><br><span class="line">       <span class="keyword">if</span> (root == <span class="literal">null</span> || root.key == key)</span><br><span class="line">           <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (key &lt; root.key)</span><br><span class="line">           <span class="keyword">return</span> searchRec(root.left, key);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> searchRec(root.right, key);</span><br><span class="line">   &#125;</span><br><span class="line">       <span class="comment">// 计算并返回平均查找长度（ASL）</span></span><br><span class="line">   <span class="type">double</span> <span class="title function_">getASL</span><span class="params">(<span class="type">int</span> totalSearchCount, <span class="type">int</span> successfulSearchCount)</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> (<span class="type">double</span>) totalSearchCount / successfulSearchCount;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>测试功能</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二叉排序树</span></span><br><span class="line">        <span class="type">BinarySearchTree</span> <span class="variable">bst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BinarySearchTree</span>();</span><br><span class="line">        List&lt;Team&gt; teams = teamManager.getTeams();</span><br><span class="line">        <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">            bst.insert(Double.parseDouble(team.getTeamNumber()), team);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 提示用户输入参赛队编号进行查找(!! 从键盘输入）</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">searchTeamId</span> <span class="operator">=</span> <span class="number">2021001018</span>; <span class="comment">// 示例参赛队编号</span></span><br><span class="line">        <span class="type">Team</span> <span class="variable">result</span> <span class="operator">=</span> bst.search(searchTeamId);</span><br><span class="line">        <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">            System.out.println(result);</span><br><span class="line">            <span class="type">double</span> <span class="variable">asl</span> <span class="operator">=</span> bst.getASL(BinarySearchTree.searchCount, <span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;平均查找长度（ASL）：&quot;</span> + asl);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>小结：</li>
+</ol>
+<ul>
+<li>选用二叉排序树作为数据结构来实现队伍的查找操作。二叉排序树具有以下特点：<ul>
+<li>每个节点的左子树的所有节点值都小于该节点的值，而右子树的所有节点值都大于该节点的值，符合队伍编号的大小关系。</li>
+<li>可以通过比较节点值来进行快速查找，减少查找时间复杂度。</li>
+<li>二叉排序树的平均查找长度（ASL）较小，适合用于查找操作。</li>
+</ul>
+</li>
+<li>通过使用二叉排序树，我们可以高效地实现参赛队伍的查找操作。二叉排序树的特性使得查找过程具有较低的时间复杂度，并且可以根据查找的结果输出相应的信息。平均查找长度（ASL）是衡量查找效率的指标之一，通过计算ASL可以评估二叉排序树的性能。<h2 id="3-3-查询功能模块："><a href="#3-3-查询功能模块：" class="headerlink" title="3.3 查询功能模块："></a>3.3 查询功能模块：</h2></li>
+</ul>
+<ol>
+<li>题目要求：能够提供按参赛学校查询参赛团队（或根据赛事类别查询参赛团队），即，根据提示输入参赛学校名称（赛事类别），若查找成功，输出该学校参赛的（该赛事类别的）所有团队的基本信息，输出的参赛团队按赛事类别有序输出。（排序算法可从选择排序、插入排序、希尔排序、归并排序、堆排序中任意选择，并为选择算法的原因做出说明。）</li>
+<li>需求分析：</li>
+</ol>
+<ul>
+<li> 用户需要根据参赛学校名称或赛事类别查询参赛团队的基本信息，并按照赛事类别对查询结果进行排序。</li>
+<li>查询成功时，需要输出该学校参赛的指定赛事类别的所有团队的基本信息，并按照赛事类别有序输出。</li>
+<li>可以使用插入排序算法进行排序，选择插入排序的原因可以是其简单易实现且适用于小规模数据的排序。</li>
+</ul>
+<ol start="3">
+<li>实现过程分析：<br>提示用户输入参赛学校名称或赛事类别。（键盘输入）<br>遍历参赛团队列表，找到符合条件的团队，将其添加到一个新的列表中。<br>使用插入排序算法对新的列表按赛事类别进行排序。<br>输出排序后的结果，包括每个团队的基本信息。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询并输出参赛团队信息的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">queryTeamsByCategory</span><span class="params">(String eventCategory)</span> &#123;</span><br><span class="line">        List&lt;Team&gt; queriedTeams = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历所有参赛队伍，找到符合赛事类别的参赛团队</span></span><br><span class="line">        <span class="keyword">for</span> (Team team : teams) &#123;</span><br><span class="line">            <span class="keyword">if</span> (team.getCategory().equals(eventCategory)) &#123;</span><br><span class="line">                queriedTeams.add(team);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用插入排序对查询结果按赛事类别进行排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; queriedTeams.size(); i++) &#123;</span><br><span class="line">            <span class="type">Team</span> <span class="variable">current</span> <span class="operator">=</span> queriedTeams.get(i);</span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            * 我们需要比较当前团队的赛事类别与已排序部分的团队的赛事类别，找到插入位置。</span></span><br><span class="line"><span class="comment">            * 可以使用 compareTo() 方法来比较两个字符串的大小关系，返回一个整数值：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">				如果返回值小于 0，则表示已排序部分的字符串小于当前字符串。</span></span><br><span class="line"><span class="comment">				如果返回值等于 0，则表示已排序部分的字符串等于当前字符串。</span></span><br><span class="line"><span class="comment">				如果返回值大于 0，则表示已排序部分的字符串大于当前字符串。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; queriedTeams.get(j).getCategory().compareTo(current.getCategory()) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                queriedTeams.set(j + <span class="number">1</span>, queriedTeams.get(j));</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// </span></span><br><span class="line">            queriedTeams.set(j + <span class="number">1</span>, current);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出查询结果</span></span><br><span class="line">        <span class="keyword">if</span> (queriedTeams.isEmpty()) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;未找到该赛事类别的参赛团队！&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (Team team : queriedTeams) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;参赛编号：&quot;</span>+ team.getTeamNumber());</span><br><span class="line">                System.out.println(<span class="string">&quot;参赛作品名称：&quot;</span> + team.getProjectName());</span><br><span class="line">                System.out.println(<span class="string">&quot;参赛学校：&quot;</span> + team.getSchool());</span><br><span class="line">                System.out.println(<span class="string">&quot;赛事类别：&quot;</span> + team.getCategory());</span><br><span class="line">                System.out.println(<span class="string">&quot;参赛者：&quot;</span> + team.getCategory());</span><br><span class="line">                System.out.println(<span class="string">&quot;指导教师：&quot;</span> + team.getInstructor());</span><br><span class="line">                System.out.println(<span class="string">&quot;----------------------</span></span><br><span class="line"><span class="string">                -----&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>选用插入排序的原因分析：</li>
+</ol>
+<ul>
+<li>简单实现：插入排序算法的实现较为简单(<del>这才是主要原因啊</del> 😀)，易于理解和编写，适用于小规模数据集的排序需求。</li>
+<li>部分有序性：如果参赛团队数据具有一定的有序性，插入排序的性能较好。对于赛事类别较为连续的数据集，插入排序算法可以快速完成排序。</li>
+<li>原地排序：插入排序是一种原地排序算法，不需要额外的空间。</li>
+</ul>
+<ol start="5">
+<li>功能测试</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 根据赛事类别查询参赛团队(键盘输入！！！）</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">eventCategory</span> <span class="operator">=</span> <span class="string">&quot;大数据实践&quot;</span>;</span><br><span class="line">    teamManager.queryTeamsByCategory(eventCategory);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-决赛叫号系统模块："><a href="#3-4-决赛叫号系统模块：" class="headerlink" title="3.4 决赛叫号系统模块："></a>3.4 决赛叫号系统模块：</h2><ol>
+<li>题目要求：</li>
+<li>需求分析：</li>
+</ol>
+<ul>
+<li>首先定义了一个决赛室类，包括属性（赛事类别、当前类别下的队伍、叫号队伍的队列）和方法（给每个队伍分配入场的号码，和叫号的方法）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 决赛室</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Room</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="comment">// 决赛室的赛事类别</span></span><br><span class="line">    <span class="keyword">private</span> String currentCategory;</span><br><span class="line">    <span class="comment">// 存储当前类别下的队伍</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Team&gt; competitionTeams;</span><br><span class="line">    <span class="comment">// 叫号队伍的队列</span></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Team&gt; teamQueue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">(String currentCategory)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentCategory = currentCategory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">(String currentCategory, List&lt;Team&gt; competitionTeams)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentCategory = currentCategory;</span><br><span class="line">        <span class="built_in">this</span>.competitionTeams = competitionTeams;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">(String currentCategory, List&lt;Team&gt; competitionTeams, Queue&lt;Team&gt; teamQueue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentCategory = currentCategory;</span><br><span class="line">        <span class="built_in">this</span>.competitionTeams = competitionTeams;</span><br><span class="line">        <span class="built_in">this</span>.teamQueue = teamQueue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Team&gt; <span class="title function_">getCompetitionTeams</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> competitionTeams;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setCompetitionTeams</span><span class="params">(List&lt;Team&gt; competitionTeams)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.competitionTeams = competitionTeams;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 给每个队伍进行分配顺序编号</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">allocateOrder</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">numTeams</span> <span class="operator">=</span> competitionTeams.size();</span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; numbers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= numTeams; i++) &#123;</span><br><span class="line">            numbers.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//洗牌算法</span></span><br><span class="line">        Collections.shuffle(numbers);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//给每个队伍进行分配号码</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numTeams; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">teamNumber</span> <span class="operator">=</span> numbers.get(i);</span><br><span class="line">            competitionTeams.get(i).setOrder(teamNumber);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 队伍按照各自顺序依次入队等待叫号</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enQueue</span><span class="params">()</span>&#123;</span><br><span class="line">        teamQueue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//按照进程顺序进行排序</span></span><br><span class="line">        competitionTeams.sort(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Team&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Team o1, Team o2)</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (o1.getOrder() &lt; o2.getOrder()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// o1 小于 o2，返回负整数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o1.getOrder() &gt; o2.getOrder()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// o1 大于 o2，返回正整数 进行交换位置</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// o1 等于 o2，返回 0</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 入队</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;i&lt;competitionTeams.size();i++)&#123;</span><br><span class="line">           teamQueue.add(competitionTeams.get(i));</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span><span class="number">1</span>;</span><br><span class="line">    <span class="comment">//模拟叫号</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startCall</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!teamQueue.isEmpty())&#123;</span><br><span class="line">            System.out.println(currentCategory+<span class="string">&quot;决赛室的&quot;</span>+count +<span class="string">&quot;号请进场&quot;</span>);</span><br><span class="line">            <span class="type">Team</span> <span class="variable">currentTeam</span> <span class="operator">=</span> teamQueue.poll();</span><br><span class="line">            System.out.println(currentCategory+<span class="string">&quot;决赛室的&quot;</span>+currentTeam.getOrder()+<span class="string">&quot;已经入场，参与答辩，，其它队伍耐心等待&quot;</span>);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(currentCategory+<span class="string">&quot;决赛室的&quot;</span>+<span class="string">&quot;所有队伍已经全部入场，比赛结束&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//分配号码</span></span><br><span class="line">        allocateOrder();</span><br><span class="line">        <span class="comment">//入队</span></span><br><span class="line">        enQueue();</span><br><span class="line">        <span class="comment">// 模拟叫号</span></span><br><span class="line">        startCall();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其次定义了一个叫号模拟执行类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 决赛叫号系统</span></span><br><span class="line"><span class="comment"> * 实现思路：</span></span><br><span class="line"><span class="comment"> * 1. 首先初始化每个决赛室，包括决赛室的类别并</span></span><br><span class="line"><span class="comment"> * 2. 然后给其分配对应的队伍</span></span><br><span class="line"><span class="comment"> * 3. 最后开始进行并发执行，因为各个决赛室室同时执行的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FinalsCallSystem</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Room&gt; rooms;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;String&gt; eventCategories; <span class="comment">// 赛事类别</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">FinalsCallSystem</span><span class="params">(List&lt;String&gt; eventCategories)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.eventCategories = eventCategories;</span><br><span class="line">        <span class="built_in">this</span>.rooms = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 初始化各个决赛室的队伍队列</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initializeRooms</span><span class="params">(TeamManager teamManager)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;i&lt;eventCategories.size();i++)&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">currentCategory</span> <span class="operator">=</span> eventCategories.get(i);</span><br><span class="line">            <span class="type">Room</span> <span class="variable">room</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Room</span>(currentCategory);</span><br><span class="line">            List&lt;Team&gt; teams = teamManager.queryTeamsByCategoryNoPrint(currentCategory);</span><br><span class="line">            room.setCompetitionTeams(teams);</span><br><span class="line">            rooms.add(room);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startCompetition</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;Thread&gt; threads = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;<span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="type">Room</span> <span class="variable">room</span> <span class="operator">=</span> rooms.get(i);</span><br><span class="line">            <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(room);</span><br><span class="line">            threads.add(thread);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 启动所有决赛室的线程</span></span><br><span class="line">        <span class="keyword">for</span> (Thread thread : threads) &#123;</span><br><span class="line">            thread.start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 等待所有线程执行结束</span></span><br><span class="line">        <span class="keyword">for</span> (Thread thread : threads) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                thread.join();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>数据结构选取分析<br>使用队列（Queue）来表示每个决赛室的参赛队伍队列，保证先进先出的顺序。</li>
+<li>测试分析</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟叫号过程实现</span></span><br><span class="line">       ArrayList&lt;String&gt; categories = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       categories.add(<span class="string">&quot;大数据实践&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;信息图形设计&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;动态信息影像（MG动画）&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;数据可视化&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;人工智能实践赛&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;Web应用与开发&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;管理信息系统&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;算法设计与应用&quot;</span>);</span><br><span class="line">       categories.add(<span class="string">&quot;移动应用开发&quot;</span>);</span><br><span class="line">       <span class="type">FinalsCallSystem</span> <span class="variable">finalsCallSystem</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FinalsCallSystem</span>(categories);</span><br><span class="line">       finalsCallSystem.initializeRooms(teamManager);</span><br><span class="line">       finalsCallSystem.startCompetition();</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-校园导游程序模块："><a href="#3-5-校园导游程序模块：" class="headerlink" title="3.5 校园导游程序模块："></a>3.5 校园导游程序模块：</h2><ol>
+<li>题目要求：<br>赛事系统为参赛者提供赛地的校园导游程序,为参赛者提供各种路径导航的查询服务。以我校长山校区提供比赛场地为例，（请为参赛者提供不少于10个目标地的导航。可为参赛者提供校园地图中任意目标地（建筑物）相关信息的查询；提供任意两个目标地（建筑物）的导航查询，即查询任意两个目的地（建筑物）之间的一条最短路径。</li>
+<li>需求分析：</li>
+</ol>
+<ul>
+<li>提供校园地图中不少于10个目标地（建筑物）的导航查询服务。</li>
+<li>提供任意两个目标地（建筑物）之间的一条最短路径查询。</li>
+</ul>
+<ol start="3">
+<li>过程分析：</li>
+</ol>
+<ul>
+<li>构建校园地图数据，包括建筑物的位置、连接关系等信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> navagator;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 建筑物类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Building</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Building</span><span class="params">(String name, String description)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getDescription</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> navagator;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径边类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Path</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String from;</span><br><span class="line">    <span class="keyword">private</span> String to;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> distance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Path</span><span class="params">(String from, String to, <span class="type">int</span> distance)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.from = from;</span><br><span class="line">        <span class="built_in">this</span>.to = to;</span><br><span class="line">        <span class="built_in">this</span>.distance = distance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getFrom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> from;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getTo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> to;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDistance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> distance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提供目标地查询服务，让参赛者可以查询指定建筑物的相关信息，如位置、功能等。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取建筑物信息</span></span><br><span class="line"> <span class="keyword">public</span> Building <span class="title function_">getBuilding</span><span class="params">(String name)</span> &#123;</span><br><span class="line">     <span class="keyword">return</span> buildings.get(name);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提供最短路径查询服务，参赛者可以输入起点和终点建筑物，系统返回两个建筑物之间的一条最短路径。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导航查询：获取从起点到终点的最短路径和总距离</span></span><br><span class="line">   <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">findShortestPath</span><span class="params">(String start, String end)</span> &#123;</span><br><span class="line">       <span class="comment">// 使用Dijkstra算法来查找最短路径</span></span><br><span class="line">       PriorityQueue&lt;Path&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(Comparator.comparingInt(Path::getDistance));</span><br><span class="line">       Map&lt;String, Integer&gt; distanceMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">       Map&lt;String, String&gt; previous = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 初始化距离</span></span><br><span class="line">       <span class="keyword">for</span> (String building : buildings.keySet()) &#123;</span><br><span class="line">           <span class="keyword">if</span> (building.equals(start)) &#123;</span><br><span class="line">               distanceMap.put(building, <span class="number">0</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               distanceMap.put(building, Integer.MAX_VALUE);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       queue.add(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="literal">null</span>, start, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">           <span class="type">Path</span> <span class="variable">currentPath</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">           <span class="type">String</span> <span class="variable">current</span> <span class="operator">=</span> currentPath.getTo();</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (current.equals(end)) &#123;</span><br><span class="line">           	 <span class="comment">/**</span></span><br><span class="line"><span class="comment">           	 这部分代码是从终点（end）开始向起点（start）回溯遍历路径。</span></span><br><span class="line"><span class="comment">           	 初始时，将终点赋值给变量node，然后进入循环。</span></span><br><span class="line"><span class="comment">           	 在每次循环中，将当前节点node添加到路径列表path的开头，</span></span><br><span class="line"><span class="comment">           	 然后更新node为前一个节点（通过previous映射获取）。</span></span><br><span class="line"><span class="comment">           	 这样就实现了从终点到起点的路径遍历，最终得到的路径列表将是从起点到终点的顺序。</span></span><br><span class="line"><span class="comment">           	 */</span></span><br><span class="line">               <span class="comment">// 已找到最短路径，回溯构建路径列表和总距离</span></span><br><span class="line">               List&lt;String&gt; path = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">               <span class="type">String</span> <span class="variable">node</span> <span class="operator">=</span> end;</span><br><span class="line">               <span class="type">int</span> <span class="variable">totalDistance</span> <span class="operator">=</span> currentPath.getDistance();</span><br><span class="line"></span><br><span class="line">               <span class="keyword">while</span> (node != <span class="literal">null</span>) &#123;</span><br><span class="line">                   path.add(<span class="number">0</span>, node);</span><br><span class="line">                   node = previous.get(node);</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               path.add(Integer.toString(totalDistance)); <span class="comment">// 添加总距离</span></span><br><span class="line"></span><br><span class="line">               <span class="keyword">return</span> path;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (currentPath.getDistance() &gt; distanceMap.get(current)) &#123;</span><br><span class="line">               <span class="keyword">continue</span>; <span class="comment">// 已经存在更短路径，忽略当前路径</span></span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">for</span> (Path neighborPath : adjacencyList.get(current)) &#123;</span><br><span class="line">               <span class="type">String</span> <span class="variable">neighbor</span> <span class="operator">=</span> neighborPath.getFrom().equals(current) ? neighborPath.getTo() : neighborPath.getFrom();</span><br><span class="line">               <span class="type">int</span> <span class="variable">newDistance</span> <span class="operator">=</span> distanceMap.get(current) + neighborPath.getDistance();</span><br><span class="line"></span><br><span class="line">               <span class="keyword">if</span> (newDistance &lt; distanceMap.get(neighbor)) &#123;</span><br><span class="line">                   distanceMap.put(neighbor, newDistance);</span><br><span class="line">                   previous.put(neighbor, current);</span><br><span class="line">                   queue.add(<span class="keyword">new</span> <span class="title class_">Path</span>(current, neighbor, newDistance));</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// 无法找到路径</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+
+<p>寻找最短路径方法分析：</p>
+<ul>
+<li>首先，创建一个优先队列queue，用于按路径距离从小到大排序。创建两个辅助映射，distanceMap用于记录从起点到每个建筑物的当前最短距离，previous用于记录路径中每个节点的前一个节点。</li>
+<li>初始化距离：遍历所有建筑物，将起点的距离设置为0，其他建筑物的距离设置为无穷大。</li>
+<li>将起点添加到队列中。</li>
+<li>进入循环，直到队列为空：<ul>
+<li>弹出队列中距离最小的路径。</li>
+<li>如果当前节点为终点，说明已找到最短路径，通过回溯构建路径列表和总距离。</li>
+<li>遍历当前节点相邻的路径：<ul>
+<li>获取相邻节点的名称。</li>
+<li>计算新的距离：当前节点的距离加上相邻路径的距离。</li>
+<li>如果新的距离比之前记录的距离小，更新距离和前一个节点，并将路径加入队列。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果循环结束仍未找到路径，返回null表示无法找到路径。</li>
+</ul>
+<ol start="4">
+<li>数据结构选取及其原因<br>图数据结构：校园地图可以看作一个图，建筑物作为图的顶点，路径作为图的边。使用图数据结构可以方便表示建筑物之间的连接关系。</li>
+<li>测试分析：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;=============================欢迎来到地图导航系统=============================&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;提示：1.查询建筑物信息 2. 导航查询：获取从起点到终点的最短路径和总距离 3.退出 &quot;</span>);</span><br><span class="line">            scanner = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">            <span class="keyword">switch</span> (num)&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    <span class="comment">// 查询建筑物信息</span></span><br><span class="line">                    scanner = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                    System.out.println(<span class="string">&quot;请输入要查询的目的地名称&quot;</span>);</span><br><span class="line">                    System.out.println(<span class="string">&quot;目前可供选择的：西苑食堂\&quot;,\n&quot;</span> +</span><br><span class="line"></span><br><span class="line">                            <span class="string">&quot;明德楼\&quot;, \n&quot;</span> +</span><br><span class="line"></span><br><span class="line">                            <span class="string">&quot;文理大楼\&quot;,\n&quot;</span> +</span><br><span class="line"></span><br><span class="line">                            <span class="string">&quot;体育馆\&quot;, \n&quot;</span> +</span><br><span class="line">                            <span class="string">&quot;图书馆\&quot;, \n&quot;</span> +</span><br><span class="line">                            <span class="string">&quot;东苑操场\&quot;,\n&quot;</span> +</span><br><span class="line">                            <span class="string">&quot;计算机学院楼\n&quot;</span> +</span><br><span class="line">                            <span class="string">&quot;文体中心\&quot;,\n&quot;</span> +</span><br><span class="line">                            <span class="string">&quot;扬帆广场\&quot;,&quot;</span>);</span><br><span class="line">                    <span class="type">String</span> <span class="variable">buildingName</span> <span class="operator">=</span> scanner.next();</span><br><span class="line">                    <span class="type">Building</span> <span class="variable">buildingA</span> <span class="operator">=</span> campusMap.getBuilding(buildingName);</span><br><span class="line">                    System.out.println(buildingA.getName() + <span class="string">&quot;: &quot;</span> + buildingA.getDescription());</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="comment">// 导航查询：获取从起点到终点的最短路径和总距离</span></span><br><span class="line">                    scanner = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">                    System.out.println(<span class="string">&quot;请输入起始地点的名称：&quot;</span>);</span><br><span class="line">                    <span class="type">String</span> <span class="variable">from</span> <span class="operator">=</span> scanner.next();</span><br><span class="line">                    System.out.println(<span class="string">&quot;请输入目的地的名称：&quot;</span>);</span><br><span class="line">                    <span class="type">String</span> <span class="variable">to</span> <span class="operator">=</span> scanner.next();</span><br><span class="line"></span><br><span class="line">                    List&lt;String&gt; shortestPath = campusMap.findShortestPath(from, to);</span><br><span class="line">                    <span class="keyword">if</span> (shortestPath != <span class="literal">null</span>) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;最短路径：&quot;</span>);</span><br><span class="line">                        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; shortestPath.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                            System.out.print(shortestPath.get(i));</span><br><span class="line">                            <span class="keyword">if</span> (i!=shortestPath.size()-<span class="number">2</span>)&#123;</span><br><span class="line">                                System.out.print(<span class="string">&quot;---&gt;&quot;</span>);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println();</span><br><span class="line">                        <span class="type">int</span> <span class="variable">totalDistance</span> <span class="operator">=</span> Integer.parseInt(shortestPath.get(shortestPath.size() - <span class="number">1</span>));</span><br><span class="line">                        System.out.println(<span class="string">&quot;最短距离为：&quot;</span> + totalDistance);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;无法找到路径！&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;输入错误！！！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<p>源码地址,真的太肝了 😭😭😭：<a target="_blank" rel="noopener" href="https://gitee.com/jiarany/ds-design">课程实验源码仓库地址</a></p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">azeng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2023/05/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%AE%B0%E5%BD%95/">http://example.com/2023/05/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%AE%B0%E5%BD%95/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">azeng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/05/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%AE%B0%E5%BD%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="数据结构课程设计">
+                        
+                        <span class="card-title">数据结构课程设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            azeng
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/19/test/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="test">
+                        
+                        <span class="card-title">test</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            azeng
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">azeng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/diligent6" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1563826569@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1563826569" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1563826569" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
